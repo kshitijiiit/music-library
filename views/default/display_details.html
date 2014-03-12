@@ -1,0 +1,23 @@
+{{left_sidebar_enabled=right_sidebar_enabled=False}}
+{{extend 'layout.html'}}
+<h3>Songs Details</h3>
+<table border = "0" >
+<tr>
+<th>Song Name</th>
+<th>Singer</th>
+<th>Movie</th>
+<th>Composer</th>
+<th>Actor</th>
+<th>Length</th>
+<th>Rating</th>
+</tr>
+<tr>
+<td style="text-align:center">{{=r.name}}</td>
+<td style="text-align:center">{{=r.singer.name}}</td>
+<td style="text-align:center">{{=r.movie.name}}</td>
+<td style="text-align:center">{{=r.composer.name}}</td>
+<td style="text-align:center">{{=r.actor.name}}</td>
+<td style="text-align:center">{{=r.length}}</td>
+<td style="text-align:center">{{=r.rating}}</td>
+</tr>
+</table>

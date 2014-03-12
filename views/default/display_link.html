@@ -1,0 +1,10 @@
+{{left_sidebar_enabled=right_sidebar_enabled=False}}
+{{extend 'layout.html'}}
+<h3>Matching Songs (Click on the name for more details)</h3>
+{{for i in r:}}
+   <a href = "/Music_Repo/default/display_details?idno={{=i.song.id}}">{{ =i.song.name }}</a>
+   <br/>
+   
+
+
+{{pass}}

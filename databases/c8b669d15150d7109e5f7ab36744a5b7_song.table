@@ -1,0 +1,103 @@
+(dp1
+S'rating'
+p2
+(dp3
+S'type'
+p4
+S'integer'
+p5
+sS'sortable'
+p6
+I8
+sS'sql'
+p7
+S'INTEGER'
+p8
+ssS'singer'
+p9
+(dp10
+g4
+S'reference artist'
+p11
+sg6
+I4
+sg7
+S'INTEGER REFERENCES artist(id) ON DELETE CASCADE'
+p12
+ssS'name'
+p13
+(dp14
+g4
+S'string'
+p15
+sg6
+I2
+sg7
+S'CHAR(512) NOT NULL'
+p16
+ssS'movie'
+p17
+(dp18
+g4
+S'reference movie'
+p19
+sg6
+I6
+sg7
+S'INTEGER REFERENCES movie(id) ON DELETE CASCADE'
+p20
+ssS'actor'
+p21
+(dp22
+g4
+S'reference artist'
+p23
+sg6
+I7
+sg7
+S'INTEGER REFERENCES artist(id) ON DELETE CASCADE'
+p24
+ssS'length'
+p25
+(dp26
+g4
+S'time'
+p27
+sg6
+I3
+sg7
+S'TIME'
+p28
+ssS'composer'
+p29
+(dp30
+g4
+S'reference artist'
+p31
+sg6
+I5
+sg7
+S'INTEGER REFERENCES artist(id) ON DELETE CASCADE'
+p32
+ssS'file'
+p33
+(dp34
+g4
+S'upload'
+p35
+sg6
+I9
+sg7
+S'CHAR(512)'
+p36
+ssS'id'
+p37
+(dp38
+g4
+g37
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p39
+ss.

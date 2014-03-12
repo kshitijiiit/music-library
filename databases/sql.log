@@ -1,0 +1,547 @@
+timestamp: 2011-08-13T19:25:32.576445
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512)
+);
+success!
+timestamp: 2011-08-13T19:25:32.700046
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2011-08-13T19:25:32.785812
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2011-08-13T19:25:32.892439
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2011-08-13T19:25:32.975524
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2011-08-13T19:25:33.083957
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    url CHAR(512),
+    uuid CHAR(512)
+);
+success!
+timestamp: 2011-08-13T19:30:16.718751
+CREATE TABLE songs(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name CHAR(512),
+    Artist CHAR(512),
+    Path CHAR(512)
+);
+success!
+timestamp: 2011-08-13T19:50:50.688371
+ALTER TABLE songs ADD file CHAR(512);
+timestamp: 2011-08-21T19:21:43.203724
+ALTER TABLE songs ADD rating INTEGER;
+timestamp: 2011-08-21T19:21:43.323927
+ALTER TABLE songs ADD singer CHAR(512);
+timestamp: 2011-08-21T19:21:43.413469
+ALTER TABLE songs ADD movie CHAR(512);
+timestamp: 2011-08-21T19:21:43.501611
+ALTER TABLE songs ADD actor CHAR(512);
+timestamp: 2011-08-21T19:21:43.590680
+ALTER TABLE songs ADD length TIME;
+timestamp: 2011-08-21T19:21:43.679584
+ALTER TABLE songs ADD composer CHAR(512);
+timestamp: 2011-08-23T15:41:49.490818
+CREATE TABLE artist(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512) NOT NULL,
+    designation CHAR(512) NOT NULL
+);
+success!
+timestamp: 2011-08-23T15:41:49.664621
+CREATE TABLE movie(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512) NOT NULL,
+    actor INTEGER REFERENCES artist(id) ON DELETE CASCADE,
+    director INTEGER REFERENCES artist(id) ON DELETE CASCADE,
+    release_date DATE
+);
+success!
+timestamp: 2011-08-23T15:42:53.062919
+CREATE TABLE song(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512) NOT NULL,
+    length TIME,
+    singer INTEGER REFERENCES artist(id) ON DELETE CASCADE,
+    composer INTEGER REFERENCES artist(id) ON DELETE CASCADE,
+    movie INTEGER REFERENCES movie(id) ON DELETE CASCADE,
+    actor INTEGER REFERENCES artist(id) ON DELETE CASCADE,
+    rating INTEGER,
+    file CHAR(512)
+);
+success!
+timestamp: 2011-08-23T15:42:53.173228
+CREATE TABLE rating(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    song INTEGER REFERENCES song(id) ON DELETE CASCADE,
+    rating INTEGER
+);
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!
+DELETE FROM artist;
+DELETE FROM sqlite_sequence WHERE name='artist';
+success!
+DELETE FROM song;
+DELETE FROM sqlite_sequence WHERE name='song';
+success!
+DELETE FROM movie;
+DELETE FROM sqlite_sequence WHERE name='movie';
+success!
+DELETE FROM rating;
+DELETE FROM sqlite_sequence WHERE name='rating';
+success!

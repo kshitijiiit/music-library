@@ -1,0 +1,17 @@
+{{left_sidebar_enabled=right_sidebar_enabled=False}}
+{{extend 'layout.html'}}
+
+<h2>Welcome to My Music Repostitory!</h2>
+<br/>
+<ol>
+<li>New User?<a href="/Music_Repo/default/form_for_user"> Register </a></li>
+<li><a href="/Music_Repo/default/form_for_artist">Add a new artist</a></li>
+<li><a href="/Music_Repo/default/form_for_movie">Add a new movie</a></li>
+<li><a href="/Music_Repo/default/form_for_song">Add a new song</a></li>
+<li><a href="/Music_Repo/default/form_for_rating">Add ratings (must be logged in)</a></li>
+<li><a href="/Music_Repo/default/query_form">Click Here for Queries</a></li>
+<li><a href="/Music_Repo/default/reset_state">Click To Reset and Clear All Tables</a></li>
+<li><a href = "/Music_Repo/default/movie_artist_query">Click To Search songs on basis of movie name and/or artist name</a></li>
+</ol>
+{{block left_sidebar}}New Left Sidebar Content{{end}}
+{{block right_sidebar}}New Right Sidebar Content{{end}}

@@ -1,0 +1,16 @@
+{{left_sidebar_enabled=right_sidebar_enabled=False}}
+{{extend 'layout.html'}}
+
+<table border="0">
+<tr>
+<th>Song Name</th>
+<th>Singing Actor</th>
+</tr>
+{{for i in r:}}
+  <tr>
+  <td>{{=i.name}}</td>
+  <td>{{=i.actor.name}}</td>
+  </tr>
+  {{pass}} 
+  
+</table> 
